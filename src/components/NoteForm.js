@@ -25,20 +25,24 @@ function NoteForm(props) {
   return (
     <div>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <button>ADD</button>
-        <input
-          placeholder="Enter Title"
-          type="text"
-          name="fullname"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
+        <div className="inputs">
+          <input
+            placeholder="Enter Title"
+            type="text"
+            name="fullname"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
 
-        <textarea
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Enter text here"
-        />
+          <textarea
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            placeholder="Enter text here"
+          />
+        </div>
+        <div className="Add">
+          <button>Add</button>
+        </div>
       </form>
     </div>
   );

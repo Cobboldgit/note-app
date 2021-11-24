@@ -4,9 +4,9 @@ import NoteList from "./components/NoteList";
 function App() {
  
   return (
-    <div>
-      <NoteList />
+    <div className="App">
       <NoteForm/>
+      <NoteList />
     </div>
   );
 }

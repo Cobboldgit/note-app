@@ -11,7 +11,7 @@ function Note(props) {
 
   var today = new Date();
   var date =
-    today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+    today.getFullYear() + "/" + (today.getMonth() + 1) + "/" + today.getDate();
   var time =
     today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
   var dateTime = date + " " + time;
@@ -37,9 +37,9 @@ function Note(props) {
     <div>
       <h4>{props.note.title}</h4>
       <p>{props.note.text}</p>
-      <i>{dateTime}</i>
-      <button onClick={() => toggleModal()}>Edit</button>
-      <button onClick={() => props.deleteNote(props.note.id)}>Delete</button>
+      <i className="date">{dateTime}</i>
+      <button onClick={() => toggleModal()} className="note-btn"><i class='fas fa-edit'></i></button>
+      <button onClick={() => props.deleteNote(props.note.id)} className="note-btn"><i class='fas fa-trash-alt'></i></button>
 
       <Modal show={showModal} onHide={() => toggleModal()}>
         <Modal.Header closeButton>
@@ -47,9 +47,9 @@ function Note(props) {
         </Modal.Header>
         <Modal.Body>
           <form>
-            <button onClick={handleAdd}>ADD</button>
+            <button onClick={handleAdd}><i class='far fa-plus-square'></i></button>
             <Button variant="secondary" onClick={() => toggleModal()}>
-              Close
+              X
             </Button>
             <input
               placeholder="Enter Title"

@@ -7,7 +7,11 @@ function noteList(props) {
   const notes = props.notes;
 
   return notes.map((note) => {
-    return <Note note={note} key={note.id} />;
+    return (
+      <div className="text">
+        <Note note={note} key={note.id} />
+      </div>
+    );
   });
 }
 
