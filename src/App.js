@@ -1,4 +1,4 @@
-import Note from "./component/Note";
+import Note from "./components/Note";
 
 function App() {
   return (
