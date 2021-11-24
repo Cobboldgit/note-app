@@ -5,27 +5,22 @@ import { addNote } from "../actions/noteActions";
 
 function NoteForm(props) {
   const [text, setText] = useState("");
-  const [title, setTitle] = useState("")
+  const [title, setTitle] = useState("");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
+    let note = {
+      text,
+      title,
+      id: uuid(),
+    };
 
+    props.addNote(note);
 
- const handleSubmit = (e) => {
-  e.preventDefault()
-
-  let note = {
-    text,
-    title,
-    id: uuid(),
+    setText("");
+    setTitle("");
   };
-
-  props.addNote(note);
-
-  setText("");
-  setTitle("");
- }
-
-
 
   return (
     <div>
@@ -39,16 +34,18 @@ function NoteForm(props) {
           onChange={(e) => setTitle(e.target.value)}
         />
 
-       
-        
-        <textarea value={text} onChange={(e) => setText(e.target.value)} placeholder="Enter text here"/>
+        <textarea
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Enter text here"
+        />
       </form>
     </div>
   );
 }
 
 const mapDispatchToProps = {
-  addNote
-}
+  addNote,
+};
 
 export default connect(null, mapDispatchToProps)(NoteForm);
