@@ -1,3 +1,4 @@
+import { useState } from "react";
 import React from "react";
 import { connect } from "react-redux";
 import { deleteNote } from "../actions/noteActions";
@@ -29,6 +30,7 @@ function Note(props) {
 
 const mapDispatchToProps = {
   deleteNote,
+  editNote,
 };
 
 export default connect(null, mapDispatchToProps)(Note);
