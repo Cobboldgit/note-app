@@ -5,7 +5,10 @@ import { addNote } from "../actions/noteActions";
 
 function NoteForm(props) {
   const [text, setText] = useState("");
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState("")
+
+
+
 
  const handleSubmit = (e) => {
   e.preventDefault()
@@ -22,11 +25,12 @@ function NoteForm(props) {
   setTitle("");
  }
 
+
+
   return (
     <div>
       <form onSubmit={(e) => handleSubmit(e)}>
         <button>ADD</button>
-        <button>CLOSE</button>
         <input
           placeholder="Enter Title"
           type="text"
