@@ -11,6 +11,7 @@ const noteReducers = (state = initialState, action) => {
         return note.id !== action.payload;
       });
       return { ...state, notes: filterNote };
+
     case "EDIT_NOTE":
       const updateNote = state.notes.map((note) => {
         if (note.id === action.payload.noteId) {
