@@ -23,3 +23,5 @@ const noteReducers = (state = initialState, action) => {
       return state;
   }
 };
+
+export default noteReducers;
