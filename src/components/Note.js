@@ -6,8 +6,8 @@ function Note(props) {
   const notes = props.note;
   return (
     <div>
-      <h4>{notes.title}</h4>
-      <p>{notes.text}</p>
+      {/* <h4>{notes.title}</h4>
+      <p>{notes.text}</p> */}
       <button onClick={console.log("eidt")}>Edit</button>
       <button onClick={() => props.deleteNote}>Delete</button>
     </div>

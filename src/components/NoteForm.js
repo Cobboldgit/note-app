@@ -7,6 +7,7 @@ function NoteForm(props) {
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
 
+  function handleSubmit(e) {
   let note = {
     text,
     title,
@@ -17,6 +18,7 @@ function NoteForm(props) {
 
   setText("");
   setTitle("");
+}
 return (
     <div>
         <form onSubmit={(e) => handleSubmit(e)}>
@@ -30,13 +32,7 @@ return (
     onChange={(e) => setTitle(e.target.value)}
      />
 
-<input
-    placeholder="Enter Text"
-    type="text"
-    name="Text"
-    value={text}
-    onChange={(e) => setText(e.target.value)}
-     />
+
      <textarea  placeholder="Enter text here"> 
         
      </textarea>
@@ -45,6 +41,9 @@ return (
     </div>
 )
 };
+const mapDispatchToProps = {
+    addNote,
+}
 
 
 export default connect (null, mapDispatchToProps)(NoteForm);
