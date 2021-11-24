@@ -3,7 +3,9 @@ import { connect } from "react-redux";
 import Note from "./Note";
 
 function noteList(props) {
+  
   const notes = props.notes;
+
   return notes.map((note) => {
     return <Note note={note} key={note.id} />;
   });
