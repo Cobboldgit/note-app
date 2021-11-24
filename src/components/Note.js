@@ -1,7 +1,7 @@
 import { useState } from "react";
 import React from "react";
 import { connect } from "react-redux";
-import { deleteNote } from "../actions/noteActions";
+import { deleteNote, editNote } from "../actions/noteActions";
 
 function Note(props) {
   var today = new Date();
