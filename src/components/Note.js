@@ -38,12 +38,12 @@ function Note(props) {
       <h4 className="title">{props.note.title}</h4>
       <p>{props.note.text}</p>
       <i className="date">{dateTime}</i>
-      <button onClick={() => toggleModal()} className="note-btn"><i className='fas fa-edit'>e</i></button>
+      <button onClick={() => toggleModal()} className="note-btn"><i className='fas fa-edit'></i></button>
       <button onClick={() => props.deleteNote(props.note.id)} className="note-btn"><i className='fas fa-trash-alt'></i></button>
 
       <Modal show={showModal} onHide={() => toggleModal()}>
         <Modal.Header closeButton className="Modal-header">
-          <Modal.Title><button onClick={handleAdd} className="note-btn"><i className='far fa-plus-square'>s</i></button></Modal.Title>
+          <Modal.Title><button onClick={handleAdd} className="note-btn"><i className='far fa-plus-square'></i></button></Modal.Title>
         </Modal.Header>
         <Modal.Body className="Modal-body">
           <form>
