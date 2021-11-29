@@ -2,7 +2,7 @@ import { useState } from "react";
 import React from "react";
 import { connect } from "react-redux";
 import { deleteNote, editNote } from "../actions/noteActions";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
 function Note(props) {
   const [text, setText] = useState(props.note.text);
@@ -35,22 +35,19 @@ function Note(props) {
 
   return (
     <div>
-      <h4>{props.note.title}</h4>
+      <h4 className="title">{props.note.title}</h4>
       <p>{props.note.text}</p>
       <i className="date">{dateTime}</i>
-      <button onClick={() => toggleModal()} className="note-btn"><i class='fas fa-edit'></i></button>
-      <button onClick={() => props.deleteNote(props.note.id)} className="note-btn"><i class='fas fa-trash-alt'></i></button>
+      <button onClick={() => toggleModal()} className="note-btn"><i className='fas fa-edit'>e</i></button>
+      <button onClick={() => props.deleteNote(props.note.id)} className="note-btn"><i className='fas fa-trash-alt'></i></button>
 
       <Modal show={showModal} onHide={() => toggleModal()}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+        <Modal.Header closeButton className="Modal-header">
+          <Modal.Title><button onClick={handleAdd} className="note-btn"><i className='far fa-plus-square'>s</i></button></Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="Modal-body">
           <form>
-            <button onClick={handleAdd}><i class='far fa-plus-square'></i></button>
-            <Button variant="secondary" onClick={() => toggleModal()}>
-              X
-            </Button>
+            
             <input
               placeholder="Enter Title"
               type="text"
@@ -66,7 +63,6 @@ function Note(props) {
             />
           </form>
         </Modal.Body>
-        <Modal.Footer></Modal.Footer>
       </Modal>
     </div>
   );

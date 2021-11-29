@@ -10,22 +10,36 @@ function NoteForm(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let note = {
-      text,
-      title,
-      id: uuid(),
-    };
+    if (text || title) {
+      let note = {
+        text,
+        title,
+        id: uuid(),
+      };
 
-    props.addNote(note);
+      props.addNote(note);
 
-    setText("");
-    setTitle("");
+      setText("");
+      setTitle("");
+    }
   };
+
+  let numberOfNotes = props.notes.length;
+  let numberOfNotesText;
+
+  if (numberOfNotes === 0) {
+     (numberOfNotesText = "You have no notes");
+  } else if (numberOfNotes === 1) {
+     (numberOfNotesText = `You have ${numberOfNotes} note`);
+  } else if (numberOfNotes > 1) {
+     (numberOfNotesText = `You have ${numberOfNotes} notes`);
+  }
 
   return (
     <div>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="inputs">
+          <p>{numberOfNotesText}</p>
           <input
             placeholder="Enter Title"
             type="text"
@@ -48,8 +62,14 @@ function NoteForm(props) {
   );
 }
 
+const mapStateToProps = (state) => {
+  return {
+    notes: state.notes,
+  };
+};
+
 const mapDispatchToProps = {
   addNote,
 };
 
-export default connect(null, mapDispatchToProps)(NoteForm);
+export default connect(mapStateToProps, mapDispatchToProps)(NoteForm);
